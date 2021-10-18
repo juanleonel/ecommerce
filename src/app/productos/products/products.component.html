@@ -1,0 +1,20 @@
+
+
+<div *ngFor="let product of products">
+    <div class="stock-container" [class]="product.isSale ? 'sale' : ''">
+        <div class="name">
+            {{product.name  }}
+        </div>
+        <div class="price"  >
+            $ {{product.price}}
+        </div>
+        <button (click)="increment(product.id)" >+</button>
+        <span>{{product.quantity}}</span>
+        <button (click)="decrement(product.id)" >-</button>
+        <br>
+        <button (click)="toggleFavorite($event)" [disabled]="!product.isQuantityValid()">Buy</button>
+
+    </div>
+</div>
+
+
